@@ -3,6 +3,8 @@ using DelimitedFiles
 using Interpolations
 using QuasiDiracOscillations: ele, mu, tau
 
+include("../utils.jl")
+
 struct EffectiveArea{QF1,QF2,QF3}
     itp_ele::QF1
     itp_mu::QF2
