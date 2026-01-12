@@ -61,19 +61,19 @@ function run_QD2param_scan( FQD, dmsq_pts, dsets, savedir;
             update_dmsq!( FQD, t.log_dmsq_e[1], t.log_dmsq_d[1] )
         end
 
-        @println Tuple( FQD.p )
+        println( Tuple( FQD.p ) )
 
         Δt_1pt = @elapsed run_minuit( 
             FQD, dsets; limits, verbose=true )
-        @println "num_pts = $(num_pts - idx0)"
-        @println "estimated time = $( (num_pts - idx0) * Δt_1pt )"
+        println( "num_pts = $(num_pts - idx0)" )
+        println( "estimated time = $( (num_pts - idx0) * Δt_1pt )" )
         flush(stdout)
 
         # ------
 
         @time for i in (idx0+1):length(t)
 
-            verbose && @println "minimizing... $i"
+            verbose && println( "minimizing... $i" )
 
             # reset, for speed
             if (t.log_dmsq_e[i] <= -21) || (t.log_dmsq_d[i] <= -21)

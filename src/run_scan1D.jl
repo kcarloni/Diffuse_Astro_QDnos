@@ -25,7 +25,7 @@ function run_QD1param_scan( FQD, dmsq_pts, dsets, savedir;
 
     if idx0 < num_pts
 
-        @println "saving to: $(savedir * fname)"
+        println( "saving to: $(savedir * fname)" )
         
         # setup table 
         pnames = param_names(FQD)
@@ -50,14 +50,14 @@ function run_QD1param_scan( FQD, dmsq_pts, dsets, savedir;
 
         Δt_1pt = @elapsed run_minuit( FQD, dsets; limits, verbose=true )
 
-        @println "num_pts = $(num_pts - idx0)"
-        @println "estimated time = $( (num_pts - idx0) * Δt_1pt )"
+        println( "num_pts = $(num_pts - idx0)" )
+        println( "estimated time = $( (num_pts - idx0) * Δt_1pt )" )
         flush(stdout)
 
         # ~ takes ~3.5s / pt 
         @time for i in (idx0+1):num_pts
 
-            verbose && @println "minimizing... $i"
+            verbose && println( "minimizing... $i" )
 
             FQD.δmsq .= dmsq_pts[i]
             res = run_minuit( FQD, dsets; limits, verbose )

@@ -3,6 +3,7 @@ begin
 # setup
 proj_dir = (@__DIR__) * "/../"
     using Pkg; Pkg.activate( proj_dir )
+    using AstroParticleUnits
 
     include( proj_dir * "src/data/load_dataset.jl")
     include( proj_dir * "src/flux/flux_models.jl")

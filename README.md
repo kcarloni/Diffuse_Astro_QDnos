@@ -1,7 +1,14 @@
 
 This repository contains the source code for the analysis described in the work "Signatures of quasi-Dirac neutrinos in diffuse high-energy astrophysical neutrinos," by Carloni, Porto, Arguelles, Bhupal, and Jana, available at https://arxiv.org/abs/2503.19960.
 
-To test a purely SM model fit, try running the following code block in Julia:
+**To download the necessary Julia packages**, run the following commands in Julia:
+```julia
+] activate .
+resolve
+instantiate
+```
+
+**To test a purely SM model fit**, try running the following code block in Julia:
 ```julia
 
 include( "scripts_setup/setup.jl" )
@@ -63,7 +70,7 @@ test(; dstr="CF", flux_str="SPLcut" )
 test(; dstr="CF", flux_str="BPL" )
 ```
 
-To run a series of QD model fits on the CombinedFit (2025) diffuse flux measurements, try:
+**To run a series of QD model fits** on the CombinedFit (2025) diffuse flux measurements, try:
 `julia scripts_bash/run_on_data.jl CF SPL 1`
 - The first argument indicates the dataset chosen (either `CF`, `C20`, `E`, or `C20+E` )
 - The second argument indicates the model chosen for the flux emitted by the neutrino sources (either `SPL`, `SPE`, or `BPL`)

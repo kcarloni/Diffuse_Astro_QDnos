@@ -158,7 +158,7 @@ function run_minuit( FMOD::FluxModel, dsets;
     for (name, bds) in limits; m.limits[name] = bds; end
 
     res = migrad!( m )
-    verbose && @println res.fval
+    verbose && println( res.fval )
 
     return res
 end

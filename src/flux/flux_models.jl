@@ -1,6 +1,7 @@
 
 using QuasiDiracOscillations
 using StaticArrays
+using Printf
 
 include("flux.jl")
 
@@ -285,11 +286,11 @@ Base.broadcastable( F::FluxModel ) = Ref(F)
 
             savedir = (@__DIR__) * "/../../saved/calcs/"
 
-            @println "loading flux..."
+            println( "loading flux..." )
             f_flux = load_saved_itp_of_BPL_flux(
                 savedir * src_zdist_str * "/" )
 
-            @println "loading posc..."
+            println( "loading posc..." )
             f_posc = load_saved_itp_of_BPL_posc( 
                 savedir * src_zdist_str * "/" )
 
@@ -350,11 +351,11 @@ Base.broadcastable( F::FluxModel ) = Ref(F)
 
             savedir = (@__DIR__) * "/../../saved/calcs/"
 
-            @println "loading flux..."
+            println( "loading flux..." )
             f_flux = load_saved_itp_of_SPLcut_flux(
                 savedir * src_zdist_str * "/" )
 
-            @println "loading posc..."
+            println( "loading posc..." )
             f_posc = load_saved_itp_of_SPLcut_posc( 
                 savedir * src_zdist_str * "/" )
 
